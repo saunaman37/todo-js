@@ -24,16 +24,18 @@ const onClickAdd = () =>{
     });
 
     // button（削除）タグの生成
-    const completDeleteButton = document.createElement("button");
-    completDeleteButton.innerText = "削除";
-    completDeleteButton.addEventListener("click",() => {
-        alert("削除");
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "削除";
+    deleteButton.addEventListener("click",() => {
+    // 押された削除ボタンの親にあるliタグを未完了リストから削除
+    const deleteTarget = deleteButton.closest("li");
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
     });
 
     // liタグの子要素に各要素を設定
     div.appendChild(p);
     div.appendChild(completeButton);
-    div.appendChild(completDeleteButton);
+    div.appendChild(deleteButton);
     li.appendChild(div);
 
     // 未完了リストに追加
